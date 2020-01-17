@@ -205,34 +205,3 @@ Manager.MethodeInstance()
 # ou encore : 
 monManager.get().MethodeInstance()
 ```
-```CPP
-//*********************************************************
-// Fichier .h
-//*********************************************************
-#include "singleton.h"
-class $TM_FILENAME_BASE : public Singleton {
-    // Création du Singleton
-	SINGLETON($TM_FILENAME_BASE);
-    static void $1();
-    void $2();
-};
-//*********************************************************
-// Fichier .cpp
-//*********************************************************
-// Réservation de mémoire pour le singleton
-SINGLETON_INST($TM_FILENAME_BASE);
-// Méthode statique
-void $TM_FILENAME_BASE::$1() {
-	$TM_FILENAME_BASE* inst = $TM_FILENAME_BASE::get();
-    // Begin PUML_PROC_$TM_FILENAME_BASE $1
-	// TODO Implémenter la méthodeinst->MethodeInstance();
-    // End PUML_PROC_$TM_FILENAME_BASE 
-}
-// Métode de l'instance
-void $TM_FILENAME_BASE::$2()
-{
-    // Begin PUML_PROC_$TM_FILENAME_BASE $1
-	// ...
-    // End PUML_PROC_$TM_FILENAME_BASE $1
-}
-```
