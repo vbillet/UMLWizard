@@ -1,3 +1,7 @@
+# Classe servant à la création du desing pattern Singleton
+# @author: Vincent BILLET
+# @lastupdate : 2020/01/17
+
 class Singleton:
     def __new__(cls):
         if cls.instance is None:
@@ -10,20 +14,3 @@ class Singleton:
         if cls.instance is None:
             cls.instance = object.__new__(cls)
         return cls.instance
-
-# class monManager(Singleton):
-#     instance = None
-#     def __new__(cls):
-#         return Singleton.__new__(cls)
-#     def aff(self, x):
-#         print(x)
-#     @staticmethod
-#     def aff2(x):
-#         monManager.get().aff(x)
-# 
-# #a=monManager()
-# print(monManager.get())
-# monManager.get().aff("inst")
-# monManager.aff2("stat")
-# a=monManager()
-# print(a)

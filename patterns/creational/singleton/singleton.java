@@ -1,4 +1,9 @@
-package fr.violet.system.base.singleton;
+package fr.umlwizard.patterns.creational.singleton;
+/**
+ * Classe servant à la création du desing pattern Singleton
+ * @author: Vincent BILLET
+ * @lastupdate : 2020/01/17
+ */
 
 import android.util.Log;
 

@@ -5,21 +5,28 @@ Les descendants de Singleton bénéficient de la méthode qui sert à se procure
 ### get()
 Retourne l'instance d'un singleton.
 ## UML
+![](Singleton.png)
 ```plantUML
-@startuml
-    class Singleton {
-        # instance
-        - constructor()
-        + {static} get()
-    }
-    class MonManager << S, Singleton >> {
-        # instance
-        # {static} MethodeStatique()
-        + MethodeInstance()
-    }
-    MonManager --|> Singleton
+@startuml Singleton
+class Singleton {
+    -{static} Singleton instance
+    constructor()
+    +{static} Singleton get()
+    ~void packagePrivateMethod()
+}
+
+class MonManager << (S,#FF7700) Singleton >> {
+    # {static} MonManager instance
+    + {static}void MethodeStatique()
+    + void MethodeInstance()
+}
+Singleton <|-- MonManager : extends
+
 @enduml
 ```
+## Snippets
+Trois snippets sont disponibles pour le plantUML, et les différents langages exposés, il sont accesibles via la clé **Singleton**. Ils servent à définir un singleton, une méthode statique de singleton et une méthode d'instance (publiques pour les deux).
+
 ## Exemples
 C++
 ```CPP

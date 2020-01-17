@@ -1,0 +1,263 @@
+{
+    "Class Diagram Field": {
+        "prefix": "class➤Field",
+        "body": "${1:+} ${2:type} ${3:nom} <<${4:defaut}>> ${5:S/N} ${6:C/N} ${7:min} ${8:max}",
+        "description": "Creates a Field"
+    },
+    "Class Diagram Singleton": {
+        "prefix": "class➤Singleton pattern",
+        "body": "class ${1:name} << (S,#FF7700) Singleton >> {\n\t$0\n}",
+        "description": "Creates a Singleton"
+    },
+    "Class Diagram Singleton static": {
+        "prefix": "class➤Singleton pattern",
+        "body": "+ {static}${1:void} ${2:method}($3)",
+        "description": "Creates a Singleton"
+    },
+    "Class Diagram Singleton instance": {
+        "prefix": "class➤Singleton pattern",
+        "body": "+ ${1:void} ${2:method}($3)",
+        "description": "Creates a Singleton"
+    },
+	"Singleton h": {
+		"scope" : "cpp",
+		"prefix": "Singleton",
+		"body": [
+            "#include \"singleton.h\"",
+            "",
+			"class $TM_FILENAME_BASE : public Singleton {",
+            "\tSINGLETON($TM_FILENAME_BASE);",
+            "\t$0",
+            "};"
+		],
+		"description": "Create a Singleton (.h)"
+    },
+	"Singleton h static": {
+		"scope" : "cpp",
+		"prefix": "Singleton",
+		"body": [
+            "static ${1:void} ${2:method}(${3:params});"
+		],
+		"description": "Create a Singleton static method (.h)"
+	},
+	"Singleton h instance": {
+		"scope" : "cpp",
+		"prefix": "Singleton",
+		"body": [
+            "${1:void} ${2:method}(${3:params});"
+		],
+		"description": "Create a Singleton instance method (.h)"
+	},
+	"Singleton cpp": {
+		"scope" : "cpp",
+		"prefix": "Singleton",
+		"body": [
+            "#include \"$TM_FILENAME_BASE.h\"",
+            "",
+			"SINGLETON_INST($TM_FILENAME_BASE);",
+			"$0"
+		],
+		"description": "Create a Singleton (.cpp)"
+	},
+	"Singleton cpp static": {
+		"scope" : "cpp",
+		"prefix": "Singleton",
+		"body": [
+            "${1:void} $TM_FILENAME_BASE::${2:method}(${3:params}) {",
+            "\t$TM_FILENAME_BASE* inst = $TM_FILENAME_BASE::get();",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton static method (.cpp)"
+	},
+	"Singleton cpp instance": {
+		"scope" : "cpp",
+		"prefix": "Singleton",
+		"body": [
+            "${1:void} $TM_FILENAME_BASE::${2:method}(${3:params}) {",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton instance method (.cpp)"
+    },
+	"Singleton csharp": {
+		"scope" : "csharp",
+		"prefix": "Singleton",
+		"body": [
+            "public class $TM_FILENAME_BASE : Singleton",
+            "{",
+            "\tpublic $TM_FILENAME_BASE() : base(instance) { }",
+            "\t// L'instance UNIQUEMENT si ce singleton est instantiable",
+            "\tnew protected static $TM_FILENAME_BASE instance = new $TM_FILENAME_BASE();",
+            "\tpublic static $TM_FILENAME_BASE get() { return instance;  }",
+            "}"
+		],
+		"description": "Create a Singleton (.c#)"
+	},
+	"Singleton csharp static": {
+		"scope" : "csharp",
+		"prefix": "Singleton",
+		"body": [
+            "public static ${1:void} ${2:method}(${3:params})",
+            "{",
+            "\t$TM_FILENAME_BASE inst = get();",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton static method (.c#)"
+	},
+	"Singleton csharp instance": {
+		"scope" : "csharp",
+		"prefix": "Singleton",
+		"body": [
+            "public ${1:void} ${2:method}(${3:params})",
+            "{",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton instance method (.c#)"
+    },
+	"Singleton java": {
+		"scope" : "java",
+		"prefix": "Singleton",
+		"body": [
+            "public class $TM_FILENAME_BASE extends Singleton {",
+            "\t// Le constructeur privé empèche la création ailleurs",
+            "\tprivate $TM_FILENAME_BASE() {super(instance); }",
+            "\tprivate static $TM_FILENAME_BASE instance=new $TM_FILENAME_BASE();",
+            "\tpublic static $TM_FILENAME_BASE get(){ return instance;}",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton (.java)"
+	},
+	"Singleton java static": {
+		"scope" : "java",
+		"prefix": "Singleton",
+		"body": [
+            "public static ${1:void} ${2:method}(${3:params}) {",
+            "\t$TM_FILENAME_BASE inst = get();",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton static method (.java)"
+	},
+	"Singleton java instance": {
+		"scope" : "java",
+		"prefix": "Singleton",
+		"body": [
+            "public static ${1:void} ${2:method}(${3:params}) {",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton instance method (.java)"
+    },
+	"Singleton javascript": {
+		"scope" : "javascript",
+		"prefix": "Singleton",
+		"body": [
+            "class $TM_FILENAME_BASE extends Singleton{",
+            "\tconstructor() { super($TM_FILENAME_BASE); }",
+            "\t// L'instance UNIQUEMENT si ce singleton est instantiable",
+            "\tstatic instance = new $TM_FILENAME_BASE();",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton (.js)"
+	},
+	"Singleton javascript static": {
+		"scope" : "javascript",
+		"prefix": "Singleton",
+		"body": [
+            "static ${2:method}(${3:params}) {",
+            "\t$TM_FILENAME_BASE inst = get();",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton static method (.js)"
+	},
+	"Singleton javascript instance": {
+		"scope" : "javascript",
+		"prefix": "Singleton",
+		"body": [
+            "${2:method}(${3:params}) {",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton instance method (.js)"
+    },
+
+    "Singleton php": {
+		"scope" : "php",
+		"prefix": "Singleton",
+		"body": [
+            "class $TM_FILENAME_BASE extends Singleton{",
+            "\t// Nécessaire seulement si le constructeur est complété, sinon l'appel au parent est implicite",
+            "\tfunction __construct() { parent::__construct(); }",
+            "\t// L'instance UNIQUEMENT si ce singleton est instantiable",
+            "\tprotected static $instance;",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton (.php)"
+	},
+	"Singleton php static": {
+		"scope" : "php",
+		"prefix": "Singleton",
+		"body": [
+            "public static function ${2:method}(${3:params}) { ",
+            "\t$inst = $TM_FILENAME_BASE::get();",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton static method (.php)"
+	},
+	"Singleton php instance": {
+		"scope" : "php",
+		"prefix": "Singleton",
+		"body": [
+            "public function ${2:method}(${3:params}) { ",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton instance method (.php)"
+    },
+
+    "Singleton python": {
+		"scope" : "python",
+		"prefix": "Singleton",
+		"body": [
+            "class $TM_FILENAME_BASE(Singleton):",
+            "\t# L'instance UNIQUEMENT si ce singleton est instantiable",
+            "\tinstance = None",
+            "\tdef __new__(cls):",
+            "\t\treturn Singleton.__new__(cls)",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton (.py)"
+	},
+	"Singleton python static": {
+		"scope" : "python",
+		"prefix": "Singleton",
+		"body": [
+            "@staticmethod",
+            "def ${2:method}(${3:params}):",
+            "\tinst = $TM_FILENAME_BASE.get()",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton static method (.py)"
+	},
+	"Singleton python instance": {
+		"scope" : "python",
+		"prefix": "Singleton",
+		"body": [
+            "def ${2:method}(self,${3:params}):",
+            "\t$0",
+            "}"
+		],
+		"description": "Create a Singleton instance method (.py)"
+    },
+
+}

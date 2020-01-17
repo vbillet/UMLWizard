@@ -1,0 +1,22 @@
+@startuml Singleton
+title
+Singleton pattern example
+end title
+header last-updated 17/01/2020
+footer authored by Vincent BILLET
+
+class Singleton {
+    -{static} Singleton instance
+    constructor()
+    +{static} Singleton get()
+    ~void packagePrivateMethod()
+}
+
+class MonManager << (S,#FF7700) Singleton >> {
+    # {static} MonManager instance
+    + {static}void MethodeStatique()
+    + void MethodeInstance()
+}
+Singleton <|-- MonManager : extends
+
+@enduml
